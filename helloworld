@@ -1,0 +1,47 @@
+public class HelloWorld{
+   public static void main (String[] args){
+       System.out.println("Hello World");
+       NumberSequence sequence = new NumberSequence();
+       sequence.triangle(5,1,2); 
+       sequence.square(3);
+       sequence.cubic(3);
+       sequence.fibonacci(5);
+   }
+}
+
+public class NumberSequence{
+    public int triangle(int length, int a, int b){
+        if(length==0){
+            return 0;
+        }else{
+            length=length-1;
+            System.out.println(a);          
+            a = a+b;
+            b = b+1;
+            return triangle(length,a,b);
+        }
+    }
+    public int[] fibonacci (int length){
+        int[] Array = new int[length];
+        Array[0] = 1;
+        Array[1] = 1;
+        for (int i=0; i<length-2; i++){
+            Array[i+2] = Array[i+1]+Array[i];
+        }
+        return Array;
+    }
+    public int[] square (int length){
+        int[] numbers = new int [length];
+        for(int i=1; i<=length; i++){
+            numbers[i-1] = i*i;
+        }
+        return numbers;
+    }
+    public int[] cubic(int length){
+        int[] numbers = new int [length];
+        for(int i=1; i<=length; i++){
+            numbers[i-1] = i*i*i;
+        }
+        return numbers;
+    }
+}
